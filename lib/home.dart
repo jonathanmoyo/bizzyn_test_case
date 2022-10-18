@@ -1,61 +1,529 @@
-import 'dart:html';
 
 import 'package:bizzyn_test_case/welcome.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'Helper/Appbar.dart';
+import 'package:table_calendar/table_calendar.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class Home extends StatelessWidget {
+   Home({Key? key}) : super(key: key);
 
-  @override
-  _HomeState createState() => _HomeState();
-}
-
-
-class _HomeState extends State<Home> {
+//
+//   @override
+//   _HomeState createState() => _HomeState();
+// }
+//
+//
+// class _HomeState extends State<Home> {
   var isLoaded = true;
-  var listname=['Jonathan moyo','azim emannuel','Richard Kimoda','Joel kazimoto','imani rafael','Brenda abel',
-  'Dorcas Leskanga','Victor Mwangoge','Herdt Rweyemamu'
-  ];
+
+  // var listname=['Jonathan moyo','azim emannuel','Richard Kimoda','Joel kazimoto','imani rafael','Brenda abel',
+  // 'Dorcas Leskanga','Victor Mwangoge','Herdt Rweyemamu'
+  // ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.blueGrey,
-        appBar: CustomAppBar(title: 'Choose your name',),
-        body:
-        Visibility(
-          visible: isLoaded,
-          replacement: const Center(
-            child: CircularProgressIndicator(),
+      backgroundColor: Colors.blueGrey.shade900,
+      appBar: AppBar(
+        leading: Icon(Icons.menu, color: Colors.indigoAccent.shade100,),
+        actions: [
+          IconButton(
+            color: Colors.indigoAccent.shade100,
+            icon: Icon(Icons.share),
+            onPressed: () {
+              // Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+              //     Home()), (Route<dynamic> route) => false);
+            },
+          )
+        ],
+        backgroundColor: Colors.blueGrey.shade900,
+        elevation: 10,
+        title: Text(
+          'Analytics', style: TextStyle(color: Colors.indigoAccent.shade100),),
+      ),
+      body:
+      ListView(
+        //A column of Card
+        children: <Widget>[
+          // CALENDER
+      Container(
+      margin: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(10.0),
+      decoration: myBoxDecoration(), //            <--- BoxDecoration here
+
+        // A Calendar view
+        child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text(
+            "<",
+            style: TextStyle(fontSize: 20.0,color: Colors.grey.shade400),
           ),
-          child: ListView.builder(
-              itemCount: listname.length,
-              itemBuilder: (context,index){
-                return Card(
-                  elevation: 20 ,
-                  color: Colors.white,
-                  child: ListTile(
-                    // leading: Icons.ima ,
-                    trailing: Icon(Icons.leaderboard),
-                    subtitle: Text('Lorem ipsum dolor sit amet'),
-                    dense: true,
-                    title: Text(listname[index],style: TextStyle(fontWeight: FontWeight.bold)),
-                    onTap:() {
-                      // print(regions![index].regionCode);
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => Welcome()));
+          Text(
+            "This month: September 2022",
+            style: TextStyle(fontSize: 20.0,color: Colors.grey.shade400),
+          ),
+          Text(
+            ">",
+            style: TextStyle(fontSize: 20.0,color: Colors.grey.shade400),
+          ),
+        ],
+      ),
+    ),
 
-                      // Navigator.push(context, MaterialPageRoute(builder: (context) => ViewDistrict(regionCode: regions![index].regionCode)));
+          // card 1 Revenue
+          Padding(
+            padding: const EdgeInsets.all(0.0),
+            child: Container(
 
-                    },
+              child: Card(
+                elevation: 0,
+                color: Colors.blueGrey.shade900,
+                margin: EdgeInsets.zero,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0.0),
+                ),
+                // borderRadius:,
+
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: 120,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        //FIRST ROW IN CARD
+                        Row(
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text('Revenue',
+                                  style: TextStyle(fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.grey.shade400),
+                                  textAlign: TextAlign.center,),
+                                Container(
+                                  padding: const EdgeInsets.fromLTRB(
+                                      0, 8, 10, 0),
+                                  margin: const EdgeInsets.only(bottom: 0),
+                                  child: Text('£750.00',
+                                    style: TextStyle(fontSize: 30,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.green),
+                                    textAlign: TextAlign.center,),
+                                ),
+                              ],
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(155, 10, 0, 5),
+                              child: Container(
+                                // height: 80,
+                                  child: Icon(Icons.trending_up, size: 80,
+                                      color: Colors.indigoAccent.shade100)
+                              ),
+                            )
+                          ],
+                        ),
+
+                        // SECOND ROW IN CARD
+                        Container(
+                          margin: const EdgeInsets.only(top: 0),
+                          padding: const EdgeInsets.only(top: 0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Best Day:28 Sep',
+                                style: TextStyle(fontSize: 18,
+                                    color: Colors.grey.shade400),
+                                textAlign: TextAlign.center,),
+                              Container(
+                                margin: EdgeInsets.only(top: 0),
+                                child: Text('>',
+                                  style: TextStyle(fontSize: 18,
+                                      color: Colors.grey.shade400),
+                                  textAlign: TextAlign.center,),
+                              ),
+                            ],
+                          ),
+                        ),
+
+                      ],
+                    ),
                   ),
+                ),
 
-                );
-
-              }
+              ),
+            ),
           ),
-        )
+          //Card two Sales
+          Padding(
+            padding: const EdgeInsets.all(0.0),
+            child: Container(
+
+              child: Card(
+                elevation: 0,
+                color: Colors.blueGrey.shade900,
+                margin: EdgeInsets.zero,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0.0),
+                ),
+                // borderRadius:,
+
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: 120,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        //FIRST ROW IN CARD
+                        Row(
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text('Sales',
+                                  style: TextStyle(fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.grey.shade400),
+                                  textAlign: TextAlign.center,),
+                                Container(
+                                  padding: const EdgeInsets.fromLTRB(
+                                      0, 8, 10, 0),
+                                  margin: const EdgeInsets.only(bottom: 0),
+                                  child: Text('9',
+                                    style: TextStyle(fontSize: 30,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.green),
+                                    textAlign: TextAlign.center,),
+                                ),
+                              ],
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(228, 10, 0, 5),
+                              child: Container(
+                                // height: 80,
+                                  child: Icon(Icons.trending_up, size: 80,
+                                      color: Colors.indigoAccent.shade100)
+                              ),
+                            )
+                          ],
+                        ),
+
+                        // SECOND ROW IN CARD
+                        Container(
+                          margin: const EdgeInsets.only(top: 0),
+                          padding: const EdgeInsets.only(top: 0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Best Day:28 Sep',
+                                style: TextStyle(fontSize: 18,
+                                    color: Colors.grey.shade400),
+                                textAlign: TextAlign.center,),
+                              Container(
+                                margin: EdgeInsets.only(top: 0),
+                                child: Text('>',
+                                  style: TextStyle(fontSize: 18,
+                                      color: Colors.grey.shade400),
+                                  textAlign: TextAlign.center,),
+                              ),
+                            ],
+                          ),
+                        ),
+
+                      ],
+                    ),
+                  ),
+                ),
+
+              ),
+            ),
+          ),
+          //Card three Tickets
+          Padding(
+            padding: const EdgeInsets.all(0.0),
+            child: Container(
+
+              child: Card(
+                elevation: 0,
+                color: Colors.blueGrey.shade900,
+                margin: EdgeInsets.zero,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0.0),
+                ),
+                // borderRadius:,
+
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: 120,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        //FIRST ROW IN CARD
+                        Row(
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text('Average Ticket Size',
+                                  style: TextStyle(fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.grey.shade400),
+                                  textAlign: TextAlign.center,),
+                                Container(
+                                  padding: const EdgeInsets.fromLTRB(
+                                      0, 8, 10, 0),
+                                  margin: const EdgeInsets.only(bottom: 0),
+                                  child: Text('£83.33',
+                                    style: TextStyle(fontSize: 30,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.green),
+                                    textAlign: TextAlign.center,),
+                                ),
+                              ],
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(100, 10, 0, 5),
+                              child: Container(
+                                // height: 80,
+                                  child: Icon(Icons.trending_up, size: 80,
+                                      color: Colors.indigoAccent.shade100)
+                              ),
+                            )
+                          ],
+                        ),
+
+                        // SECOND ROW IN CARD
+                        Container(
+                          margin: const EdgeInsets.only(top: 0),
+                          padding: const EdgeInsets.only(top: 0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Best Day:28 Sep',
+                                style: TextStyle(fontSize: 18,
+                                    color: Colors.grey.shade400),
+                                textAlign: TextAlign.center,),
+                              Container(
+                                margin: EdgeInsets.only(top: 0),
+                                child: Text('>',
+                                  style: TextStyle(fontSize: 18,
+                                      color: Colors.grey.shade400),
+                                  textAlign: TextAlign.center,),
+                              ),
+                            ],
+                          ),
+                        ),
+
+                      ],
+                    ),
+                  ),
+                ),
+
+              ),
+            ),
+          ),
+          //Card Four Profits
+          Padding(
+            padding: const EdgeInsets.all(0.0),
+            child: Container(
+
+              child: Card(
+                elevation: 0,
+                color: Colors.blueGrey.shade900,
+                margin: EdgeInsets.zero,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0.0),
+                ),
+                // borderRadius:,
+
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: 120,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        //FIRST ROW IN CARD
+                        Row(
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text('Profits',
+                                  style: TextStyle(fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.grey.shade400),
+                                  textAlign: TextAlign.center,),
+                                Container(
+                                  padding: const EdgeInsets.fromLTRB(
+                                      0, 8, 10, 0),
+                                  margin: const EdgeInsets.only(bottom: 0),
+                                  child: Text('£0.00',
+                                    style: TextStyle(fontSize: 30,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.green),
+                                    textAlign: TextAlign.center,),
+                                ),
+                              ],
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(189, 10, 0, 5),
+                              child: Container(
+                                // height: 80,
+                                  child: Icon(Icons.trending_up, size: 80,
+                                      color: Colors.indigoAccent.shade100)
+                              ),
+                            )
+                          ],
+                        ),
+
+                        // SECOND ROW IN CARD
+                        Container(
+                          margin: const EdgeInsets.only(top: 0),
+                          padding: const EdgeInsets.only(top: 0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Best Day:28 Sep',
+                                style: TextStyle(fontSize: 18,
+                                    color: Colors.grey.shade400),
+                                textAlign: TextAlign.center,),
+                              Container(
+                                margin: EdgeInsets.only(top: 0),
+                                child: Text('>',
+                                  style: TextStyle(fontSize: 18,
+                                      color: Colors.grey.shade400),
+                                  textAlign: TextAlign.center,),
+                              ),
+                            ],
+                          ),
+                        ),
+
+                      ],
+                    ),
+                  ),
+                ),
+
+              ),
+            ),
+          ),
+          // Card five SalesTax
+          Padding(
+            padding: const EdgeInsets.all(0.0),
+            child: Container(
+
+              child: Card(
+                elevation: 0,
+                color: Colors.blueGrey.shade900,
+                margin: EdgeInsets.zero,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(0.0),
+                ),
+                // borderRadius:,
+
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    height: 120,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        //FIRST ROW IN CARD
+                        Row(
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text('Sales Tax',
+                                  style: TextStyle(fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.grey.shade400),
+                                  textAlign: TextAlign.center,),
+                                Container(
+                                  padding: const EdgeInsets.fromLTRB(
+                                      0, 8, 10, 0),
+                                  margin: const EdgeInsets.only(bottom: 0),
+                                  child: Text('0.00',
+                                    style: TextStyle(fontSize: 30,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.green),
+                                    textAlign: TextAlign.center,),
+                                ),
+                              ],
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(192, 10, 0, 5),
+                              child: Container(
+                                // height: 80,
+                                  child: Icon(Icons.trending_up, size: 80,
+                                      color: Colors.indigoAccent.shade100)
+                              ),
+                            )
+                          ],
+                        ),
+
+                        // SECOND ROW IN CARD
+                        Container(
+                          margin: const EdgeInsets.only(top: 0),
+                          padding: const EdgeInsets.only(top: 0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Best Day:28 Sep',
+                                style: TextStyle(fontSize: 18,
+                                    color: Colors.grey.shade400),
+                                textAlign: TextAlign.center,),
+                              Container(
+                                margin: EdgeInsets.only(top: 0),
+                                child: Text('>',
+                                  style: TextStyle(fontSize: 18,
+                                      color: Colors.grey.shade400),
+                                  textAlign: TextAlign.center,),
+                              ),
+                            ],
+                          ),
+                        ),
+
+                      ],
+                    ),
+                  ),
+                ),
+
+              ),
+            ),
+          ),
+
+        ],
+      ),
     );
-
-
   }
+}
+BoxDecoration myBoxDecoration() {
+  return BoxDecoration(
+    border: Border.all(
+      color: Colors.blueGrey.shade800,
+        width: 3.0
+    ),
+    borderRadius: BorderRadius.all(
+        Radius.circular(5.0) //                 <--- border radius here
+    ),
+  );
 }

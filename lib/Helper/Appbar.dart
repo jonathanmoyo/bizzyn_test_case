@@ -13,20 +13,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
     // TODO: implement build
     return AppBar(
       centerTitle: true,
-      leading: BackButton(
-        color: Colors.amberAccent,
-        onPressed: ()
-    {
-      Navigator.pop(context);
-    },
-      ),
       actions: [
         IconButton(
           color: Colors.amberAccent,
-          icon: Icon(Icons.logout),
+          icon: Icon(Icons.share),
           onPressed: () {
-            Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
-                Home()), (Route<dynamic> route) => false);
+            // Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+            //     Home()), (Route<dynamic> route) => false);
           },
         )
       ],
