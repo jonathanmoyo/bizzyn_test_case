@@ -23,14 +23,16 @@ class Welcome extends StatelessWidget {
         child: Scaffold(
             backgroundColor: Colors.blueGrey.shade900,
           appBar: AppBar(
-            leading: Icon(Icons.menu, color: Colors.grey,),
+            leading: IconButton(icon: Icon(Icons.arrow_back_ios, color: Colors.grey,),
+              onPressed: () {
+                Navigator.push(context,MaterialPageRoute(builder: (context)=>Home()));
+            },),
             actions: [
               IconButton(
                 color: Colors.grey,
                 icon: Icon(Icons.share_outlined),
                 onPressed: () {
-                  // Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
-                  //     Home()), (Route<dynamic> route) => false);
+
                 },
               )
             ],

@@ -121,7 +121,7 @@ class Home extends StatelessWidget {
                                 child: Container(
                                   // height: 80,
                                     child: Icon(Icons.trending_up, size: 80,
-                                        color: Colors.indigoAccent.shade100)
+                                        color: Colors.greenAccent)
                                 ),
                               )
                             ],
@@ -214,7 +214,7 @@ class Home extends StatelessWidget {
                                 child: Container(
                                   // height: 80,
                                     child: Icon(Icons.trending_up, size: 80,
-                                        color: Colors.indigoAccent.shade100)
+                                        color: Colors.greenAccent)
                                 ),
                               )
                             ],
@@ -307,7 +307,7 @@ class Home extends StatelessWidget {
                                 child: Container(
                                   // height: 80,
                                     child: Icon(Icons.trending_up, size: 80,
-                                        color: Colors.indigoAccent.shade100)
+                                        color: Colors.greenAccent)
                                 ),
                               )
                             ],
@@ -400,7 +400,7 @@ class Home extends StatelessWidget {
                                 child: Container(
                                   // height: 80,
                                     child: Icon(Icons.trending_up, size: 80,
-                                        color: Colors.indigoAccent.shade100)
+                                        color: Colors.greenAccent)
                                 ),
                               )
                             ],
@@ -493,7 +493,7 @@ class Home extends StatelessWidget {
                                 child: Container(
                                   // height: 80,
                                     child: Icon(Icons.trending_up, size: 80,
-                                        color: Colors.indigoAccent.shade100)
+                                        color: Colors.greenAccent)
                                 ),
                               )
                             ],
