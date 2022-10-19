@@ -159,6 +159,7 @@ class Home extends StatelessWidget {
               ),
             ),
           ),
+          Divider(height: 2,color: Colors.blueGrey.shade800,thickness: 2,),
           //Card two Sales
           Padding(
             padding: const EdgeInsets.all(0.0),
@@ -252,6 +253,7 @@ class Home extends StatelessWidget {
               ),
             ),
           ),
+          Divider(height: 2,color: Colors.blueGrey.shade800,thickness: 2,),
           //Card three Tickets
           Padding(
             padding: const EdgeInsets.all(0.0),
@@ -345,6 +347,7 @@ class Home extends StatelessWidget {
               ),
             ),
           ),
+          Divider(height: 2,color: Colors.blueGrey.shade800,thickness: 2,),
           //Card Four Profits
           Padding(
             padding: const EdgeInsets.all(0.0),
@@ -438,6 +441,7 @@ class Home extends StatelessWidget {
               ),
             ),
           ),
+          Divider(height: 2,color: Colors.blueGrey.shade800,thickness: 2,),
           // Card five SalesTax
           Padding(
             padding: const EdgeInsets.all(0.0),
