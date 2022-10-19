@@ -141,10 +141,7 @@ class Home extends StatelessWidget {
                                   textAlign: TextAlign.center,),
                                 Container(
                                   margin: EdgeInsets.only(top: 0),
-                                  child: Text('>',
-                                    style: TextStyle(fontSize: 18,
-                                        color: Colors.grey.shade400),
-                                    textAlign: TextAlign.center,),
+                                  child: Icon(Icons.arrow_forward_ios,color: Colors.grey,size: 15,)
                                 ),
                               ],
                             ),
@@ -234,11 +231,8 @@ class Home extends StatelessWidget {
                                       color: Colors.grey.shade400),
                                   textAlign: TextAlign.center,),
                                 Container(
-                                  margin: EdgeInsets.only(top: 0),
-                                  child: Text('>',
-                                    style: TextStyle(fontSize: 18,
-                                        color: Colors.grey.shade400),
-                                    textAlign: TextAlign.center,),
+                                    margin: EdgeInsets.only(top: 0),
+                                    child: Icon(Icons.arrow_forward_ios,color: Colors.grey,size: 15,)
                                 ),
                               ],
                             ),
@@ -328,11 +322,8 @@ class Home extends StatelessWidget {
                                       color: Colors.grey.shade400),
                                   textAlign: TextAlign.center,),
                                 Container(
-                                  margin: EdgeInsets.only(top: 0),
-                                  child: Text('>',
-                                    style: TextStyle(fontSize: 18,
-                                        color: Colors.grey.shade400),
-                                    textAlign: TextAlign.center,),
+                                    margin: EdgeInsets.only(top: 0),
+                                    child: Icon(Icons.arrow_forward_ios,color: Colors.grey,size: 15,)
                                 ),
                               ],
                             ),
@@ -422,11 +413,8 @@ class Home extends StatelessWidget {
                                       color: Colors.grey.shade400),
                                   textAlign: TextAlign.center,),
                                 Container(
-                                  margin: EdgeInsets.only(top: 0),
-                                  child: Text('>',
-                                    style: TextStyle(fontSize: 18,
-                                        color: Colors.grey.shade400),
-                                    textAlign: TextAlign.center,),
+                                    margin: EdgeInsets.only(top: 0),
+                                    child: Icon(Icons.arrow_forward_ios,color: Colors.grey,size: 15,)
                                 ),
                               ],
                             ),
@@ -516,11 +504,8 @@ class Home extends StatelessWidget {
                                       color: Colors.grey.shade400),
                                   textAlign: TextAlign.center,),
                                 Container(
-                                  margin: EdgeInsets.only(top: 0),
-                                  child: Text('>',
-                                    style: TextStyle(fontSize: 18,
-                                        color: Colors.grey.shade400),
-                                    textAlign: TextAlign.center,),
+                                    margin: EdgeInsets.only(top: 0),
+                                    child: Icon(Icons.arrow_forward_ios,color: Colors.grey,size: 15,)
                                 ),
                               ],
                             ),
