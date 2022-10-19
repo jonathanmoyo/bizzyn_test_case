@@ -77,13 +77,13 @@ class Welcome extends StatelessWidget {
                       labelColor: Colors.greenAccent,
                       tabs: [
                         Tab(
-                          text: "ONE",
+                          text: "HOURLY",
                         ),
                         Tab(
-                          text: "TWO",
+                          text: "DAILY",
                         ),
                         Tab(
-                          text: "THREE",
+                          text: "WEEKLY",
                         ),
                       ],
                     ),
