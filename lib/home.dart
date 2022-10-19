@@ -41,10 +41,10 @@ class Home extends StatelessWidget {
         //A column of Card
         children: <Widget>[
           // CALENDER
-      Container(
-      margin: const EdgeInsets.all(8.0),
-      padding: const EdgeInsets.all(10.0),
-      decoration: myBoxDecoration(), //            <--- BoxDecoration here
+        Container(
+          margin: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(10.0),
+          decoration: myBoxDecoration(), //            <--- BoxDecoration here
 
         // A Calendar view
         child: Row(
@@ -64,7 +64,7 @@ class Home extends StatelessWidget {
           ),
         ],
       ),
-    ),
+        ),
 
           // card 1 Revenue
           Padding(
