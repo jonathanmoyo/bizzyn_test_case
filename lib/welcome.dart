@@ -1,8 +1,11 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 import 'Helper/Appbar.dart';
 class Welcome extends StatelessWidget {
+
 //   const Welcome({Key? key}) : super(key: key);
 //
 //   @override
@@ -13,31 +16,62 @@ class Welcome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white70,
-        appBar: CustomAppBar(title: 'Choose Your Region',),
-        body:Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+        backgroundColor: Colors.blueGrey.shade900,
+      appBar: AppBar(
+        leading: Icon(Icons.menu, color: Colors.grey,),
+        actions: [
+          IconButton(
+            color: Colors.grey,
+            icon: Icon(Icons.share_outlined),
+            onPressed: () {
+              // Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+              //     Home()), (Route<dynamic> route) => false);
+            },
+          )
+        ],
+        backgroundColor: Colors.blueGrey.shade900,
+        elevation: 10,
+        title: Text(
+          'Revenue', style: TextStyle(color: Colors.grey),),
+      ),
+        body:ListView(
             children:<Widget> [
+              // Graph
               Container(
-                height: 550,
+                height: 400,
                 child: SfCartesianChart(
                   title: ChartTitle(
-                    text: "Car sales"
+                    text: "Total: £300.00",
+                    textStyle: TextStyle(
+                              color: Colors.grey.shade400,
+                               fontSize: 18,
+                               fontStyle: FontStyle.normal,
+                               fontWeight: FontWeight.bold,
+                               fontFamily: 'Roboto'
+                             ),
+                    alignment: ChartAlignment.near,
+
                   ),
                   primaryXAxis: CategoryAxis(
-                    title: AxisTitle(
-                      text: 'Car Names'
-                    )
+                    majorGridLines: MajorGridLines(width: 0),
+
+                    // title: AxisTitle(
+                    //   text: 'Car Names'
+                    // )
                   ),
-                  legend:
-                  Legend(
-                    isVisible: true,
-                  )
-                  ,
-                  primaryYAxis: NumericAxis( title: AxisTitle(
-                      text: 'Sales in Millions'
-                  )
+
+
+                  // legend:
+                  // Legend(
+                  //   isVisible: false,
+                  // )
+                  // ,
+
+                  primaryYAxis: NumericAxis(
+                      axisLine: AxisLine(width: 0)
+                    // title: AxisTitle(
+                  //     text: 'Sales in Millions'
+                  // )
                   ),
                   series: <ChartSeries>[
                     ColumnSeries<SalesData,String>(
@@ -45,19 +79,73 @@ class Welcome extends StatelessWidget {
                         dataSource: getColumnData(),
                         xValueMapper: (SalesData sales,_)=>sales.x,
                         yValueMapper: (SalesData sales,_)=>sales.y,
-                      dataLabelSettings: DataLabelSettings(
-                        isVisible: true,
-                      )
+
+                      // dataLabelSettings: DataLabelSettings(
+                      //   isVisible: true,
+                      // )
                     )
                   ],
                 ),
               ),
+              // graph
+              DataTable(
+                columns: [
+                  DataColumn(label: Text("DAILY",style: TextStyle(color: Colors.grey))),
+                  DataColumn(label: Text("REVENUE",style: TextStyle(color: Colors.grey))),
+                  DataColumn(label: Text("SALES",style: TextStyle(color: Colors.grey))),
+                  DataColumn(label: Text("PROFITS",style: TextStyle(color: Colors.grey))),
+                ],
+                rows: [
+                  DataRow(cells:
+                  [ DataCell(Text("Tue",style: TextStyle(color: Colors.greenAccent.shade400))),
+                    DataCell(Text("£200.00",style: TextStyle(color: Colors.grey))),
+                    DataCell(Text("4",style: TextStyle(color: Colors.greenAccent.shade400))),
+                    DataCell(Text("£50.00",style: TextStyle(color: Colors.grey))),
+                  ]),
+                  DataRow(cells:
+                  [ DataCell(Text("Wed",style: TextStyle(color: Colors.redAccent))),
+                    DataCell(Text("£100.00",style: TextStyle(color: Colors.grey))),
+                    DataCell(Text("2",style: TextStyle(color: Colors.redAccent))),
+                    DataCell(Text("50.00",style: TextStyle(color: Colors.grey))),
+                  ]),
+                ],
+              ),
+        // bullets
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Row(
+                children:[
+                  Padding(
+                    padding: const EdgeInsets.only(top:5.0),
+                    child: Text("\u2022", style: TextStyle(fontSize: 80,color: Colors.greenAccent),),
+                  ), //bullet text
+                  SizedBox(width: 10,), //space between bullet and text
+                  Text("Best day ", style: TextStyle(fontSize: 20,color: Colors.greenAccent),)
+                ]
+            ),
+            SizedBox(width: 30,),
+            Row(
+                children:[
+                  Padding(
+                    padding: const EdgeInsets.only(top:5.0),
+                    child: Text("\u2022", style: TextStyle(fontSize: 80,color: Colors.redAccent),),
+                  ), //bullet text
+                  SizedBox(width: 10,), //space between bullet and text
+                  Text("Worst day", style: TextStyle(fontSize: 20,color: Colors.redAccent),)
+                ]
+            )
+          ]
+    )
+
+
             ],
           ),
-        ),
     );
   }
 }
+
+  //Histogram
 class SalesData {
   String x;
   double y;
@@ -65,11 +153,17 @@ class SalesData {
 }
 dynamic getColumnData(){
   List<SalesData> ColumnData= <SalesData>[
-    SalesData('BMW', 20),
-    SalesData('AUDI', 30),
-    SalesData('HONDA', 35),
-    SalesData('FERRARI', 40),
-    SalesData('BUGATTI', 50)
+    SalesData('Sun', 0),
+    SalesData('Mon', 0),
+    SalesData('Tue', 200),
+    SalesData('Wed', 150),
+    SalesData('Thu', 0),
+    SalesData('Fri', 0),
+    SalesData('Sat', 0),
   ];
   return ColumnData;
 }
+
+
+
+
